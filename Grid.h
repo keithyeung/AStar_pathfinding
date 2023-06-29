@@ -10,9 +10,6 @@ struct GridNode
 	Vector2 position{};						// Nodes position in 2D space.
 	float globalGoal;						// distance to end goal
 	float localGoal;						// distance to goal if we took alternative path.
-	//int g;									//g value
-	//int h;									//h value
-	//int f;									//F value
 	int width{};
 	int height{};
 	std::vector<GridNode*> vecNeighbours;
