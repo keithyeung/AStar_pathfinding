@@ -70,53 +70,6 @@ Grid::Grid()
 
         }
     }
-
-    /*for (int i = 0; i < nodes.size(); i++)
-    {
-        if (nodes[i].is_Empty)
-        {
-            startNode = &nodes[i];
-            break;
-        }
-    }
-    for (int i = 399; i > 0; i--)
-    {
-        if (nodes[i].is_Empty)
-        {
-            endNode = &nodes[i];
-            fallenStar = endNode;
-            break;
-        }
-    }
-    for (int i = 250; i < 350; i++)
-    {
-        if (nodes[i].is_Empty)
-        {
-            tradePost = &nodes[i];
-            break;
-        }
-    }
-    for (int i = 160; i < 200; i++)
-    {
-        if (nodes[i].is_Empty)
-        {
-            spaceShip = &nodes[i];
-            break;
-        }
-    }*/
-    /*SpawnEntity(startNode);
-    SpawnEntity(endNode);
-    SpawnEntity(spaceShip);
-    SpawnEntity(tradePost);
-    
-    fallenStar = endNode;
-    isHoldingStar = false;
-
-    tradePost->width = tradePostTexture.width;
-    fallenStar->width = fallenStarTexture.width;
-    spaceShip->width = spaceShipTexture.width;
-    route = endNode;*/
-
 }
 
 
