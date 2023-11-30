@@ -150,20 +150,17 @@ void Starchaser::AStar(GridNode* p_start, GridNode* p_end)
 		gridManager->nodes[i].localGoal = INFINITY;
 		gridManager->nodes[i].parent = nullptr;
 	}
-
 	//setting up the starting point
 	GridNode *current = p_start;
 	p_start->localGoal = 0.0f;
 	p_start->globalGoal = Heuristic(p_start,p_end);
 	
-
-	//openlist = not tested list.
-	std::list<GridNode*> openList;
+	std::list<GridNode*> openList; //openlist = not tested list.
 	openList.push_back(p_start);
 
 	while (!openList.empty() && current != p_end) {
-		//sort the nodes by global so that the lowest global value is in the front
 		openList.sort([](const GridNode* lhs, const GridNode* rhs) {return lhs->globalGoal < rhs->globalGoal; });
+		//sort the nodes by global so that the lowest global value is in the front
 
 		while (!openList.empty() && openList.front()->is_Visited)
 		{
@@ -180,27 +177,18 @@ void Starchaser::AStar(GridNode* p_start, GridNode* p_end)
 
 		for (auto neighborNode : current->vecNeighbours)
 		{
-
 			if (!neighborNode->is_Visited && neighborNode->is_Empty)
 			{
 				openList.push_back(neighborNode);
 			}
-			//cal if the neighbour has lower distance
-			float lowestGoal = current->localGoal + Distance(current, neighborNode);
-
+			float lowestGoal = current->localGoal + Distance(current, neighborNode); //cal if the neighbour has lower distance
 			if (lowestGoal < neighborNode->localGoal)
 			{
 				neighborNode->parent = current;
 				neighborNode->localGoal = lowestGoal;
-
 				neighborNode->globalGoal = neighborNode->localGoal + Heuristic(neighborNode, p_end);
 			}
-
-
 		}
-
 	}
-	
-
 }
 
